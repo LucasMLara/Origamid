@@ -19,9 +19,23 @@ const produtos = [
   },
 ]
 
+
 function App() {
+  const data = produtos.filter(({preco}) => +preco.replace('R$', '') > 1500 )
   
-    return <ul>Exercícios de Fixação</ul>;
+  console.log(data);
+  
+    return (
+      <section>
+        {data.map(({id, nome, preco, cores}) => <div key={id}>
+          <h1>{nome}</h1>
+          <p>Preço: {preco}</p>
+          <ul>
+            {cores.map(cor => <li style={{backgroundColor: cor, color: 'white'}} key={cor}>{cor}</li>)}
+          </ul>
+        </div>)}
+      </section>
+    )
 }
 
 export default App;
