@@ -22,8 +22,21 @@ const luana = {
 };
 
 function App() {
-  const dados = mario
-  return <span>Exercícios de Fixação</span>;
+  const { cliente, idade, compras, ativa } = luana;
+
+  const total = compras.map(({preco}) => +preco.replace('R$ ', '')).reduce(( acc, value) => acc + value, 0)
+  // Método '+' substitui o Number(com toda a string que será convertida para número dentro dos parênteses);
+  // Método 'replace' substitui o que está escrito no primeiro parâmetro pelo segundo parâmetro.
+
+  return (
+    <>
+    <p>Nome: {cliente}</p>
+    <p>Idade: {idade}</p>
+    <p>Situação: <span style = {{color: ativa? 'green': 'red'}}>{ativa ? 'Ativa' : 'Inativa'}</span></p>
+    <p>Total Gasto: R$ {total}</p>
+    {total > 10000 && <p>Você está gastando demais</p>}
+    </>
+  )
 }
 
 export default App;
