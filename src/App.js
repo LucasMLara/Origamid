@@ -22,7 +22,7 @@ const luana = {
 };
 
 function App() {
-  const dados = luana
+  const dados = mario
   return <span>Exercícios de Fixação</span>;
 }
 
